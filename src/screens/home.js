@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, Dimensions, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Button, Dimensions, ScrollView} from 'react-native';
 
 const windowHeight = Dimensions.get('window').height;
-
+const windowWidth = Dimensions.get('window').width;
 
 const Home = () => {
     const [reward, setReward] = useState(0);
@@ -10,16 +10,20 @@ const Home = () => {
     return (
         <View style={styles.background}>
             <View style={styles.rewardBox}>
-                <Text>Rewards</Text>
-                <Text style={styles.reward}>${reward}</Text>
+                <Text color= 'white'>Total Rewards</Text>
+                <Text style={styles.reward}>${reward}</Text> 
+                <Button title="Configure" style={styles.rewardButton} color= "#E59435" /> 
+                {/**  Should these buttons be Touchables? */ }
             </View>
             
             <ScrollView
         showsVerticalScrollIndicator={false}>
                 <View>
                     <View style={styles.surveyCard}>
-                    <Text style={{fontSize: 32}}>Survey 1</Text>
-                    <Button title="Start" style={styles.startButton} />
+                        <Text style={styles.staticReward} >$10</Text>
+                        <Text style={styles.questionAmount}>25 Questions</Text>
+                        <Text style={{fontSize: 32}}>Survey 1</Text>
+                        <Button title="Start" style={styles.startButton} color= "#8BD272"/> 
                     </View>
                 </View>
             </ScrollView>
@@ -41,18 +45,22 @@ const Home = () => {
       },
       rewardBox: {
           width: '100%',
-          height: 152,
+          height: windowHeight / 4.5, // 152
           backgroundColor: "#7879F1",
           justifyContent: 'center',
           alignItems: 'center'
       },
       startButton: {
           backgroundColor: '#8BD272',
+          color: 'red',
+      },
+      rewardButton: {
+          backgroundColor: '#8BD272',
           color: 'red'
       },
       surveyCard: {
-          height: 280,
-          width: 350,
+          height: windowHeight / 3, // 280
+          width: windowWidth / 1.2, // 350
           margin: 20,
           backgroundColor: '#FFFFFF',
           justifyContent: 'center',
@@ -63,7 +71,21 @@ const Home = () => {
           shadowOpacity: 0.2,
           shadowRadius: 3,
           elevation: 5
+      },
+      staticReward: {
+        fontSize: 24,
+        position: "absolute",
+        left: 15,
+        top: 15
+
+      },
+      questionAmount: {
+        fontSize: 24,
+        position: "absolute",
+        right: 15,
+        top: 15
       }
+      
   });
 
   export default Home
