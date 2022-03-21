@@ -1,23 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Home from "./home"
-import navbar from "./navbar"
+import Home from './src/screens/home';
+import { Root } from './src/navigation/root';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 export default function App() {
-  //return (
-    //<View style={styles.container}>
-    //  <Text>Hello World!</Text>
-    //  <StatusBar style="auto" />
-    //</View>
-  //);
-  return <Home />;
+  return (
+      <NavigationContainer>
+        <Root />
+      </NavigationContainer>
+  );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f99',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
