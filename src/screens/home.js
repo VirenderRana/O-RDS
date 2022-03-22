@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, Dimensions, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, Button, Dimensions, ScrollView, Pressable} from 'react-native';
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
@@ -10,10 +10,9 @@ const Home = () => {
     return (
         <View style={styles.background}>
             <View style={styles.rewardBox}>
-                <Text color= 'white'>Total Rewards</Text>
+                <Text style = {{ color: 'white', fontSize: 20}}>Total Rewards</Text>
                 <Text style={styles.reward}>${reward}</Text> 
-                <Button title="Configure" style={styles.rewardButton} color= "#E59435" /> 
-                {/**  Should these buttons be Touchables? */ }
+
             </View>
             
             <ScrollView
@@ -23,7 +22,17 @@ const Home = () => {
                         <Text style={styles.staticReward} >$10</Text>
                         <Text style={styles.questionAmount}>25 Questions</Text>
                         <Text style={{fontSize: 32}}>Survey 1</Text>
-                        <Button title="Start" style={styles.startButton} color= "#8BD272"/> 
+                        <Pressable 
+                               style={({ pressed }) => [
+                                styles.startButton,
+                                {
+                                  backgroundColor: pressed ? '#bee6af' :'#8BD272',
+                                }
+                                
+                               ]}>
+                            <Text style = {{ color: 'white', fontSize: 20}} >Start</Text>
+                        </Pressable>
+                        {/** <Button title="Start" style={styles.startButton} color= "#8BD272"/> */ }
                     </View>
                 </View>
             </ScrollView>
@@ -51,12 +60,13 @@ const Home = () => {
           alignItems: 'center'
       },
       startButton: {
-          backgroundColor: '#8BD272',
-          color: 'red',
-      },
-      rewardButton: {
-          backgroundColor: '#8BD272',
-          color: 'red'
+          top: 15,
+          alignItems: 'center',
+          justifyContent: 'center',
+          paddingVertical: 8,
+          width: windowWidth / 1.5,
+          borderRadius: 20,
+          elevation: 3
       },
       surveyCard: {
           height: windowHeight / 3, // 280
@@ -77,7 +87,6 @@ const Home = () => {
         position: "absolute",
         left: 15,
         top: 15
-
       },
       questionAmount: {
         fontSize: 24,
