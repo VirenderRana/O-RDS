@@ -20,7 +20,7 @@ const Invite = () => {
             ]}>
           <Text style = {{ color: 'white', fontSize: 20}} >Share your invite link</Text>
         </Pressable>
-        <Text style={styles.usedCounter}>0/4 used</Text>
+        <Text style={styles.usedCounter}>0/4 used</Text> 
     </View>
   )
 }
