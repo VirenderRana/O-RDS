@@ -9,6 +9,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 export default function App() {
   return (
       <NavigationContainer>
+        <StatusBar Auto />
         <Root />
       </NavigationContainer>
   );

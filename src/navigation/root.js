@@ -6,6 +6,7 @@ import Help from '../screens/help';
 import Invite from '../screens/invite';
 import More from '../screens/more';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import AppStyles from '../utils/globalStyles';
 
 const Tab = createBottomTabNavigator();
 
@@ -30,6 +31,8 @@ export const Root = () => {
                 return (
                     <FontAwesome5 
                         name={iconName}
+                        color={AppStyles.colour.primary}
+                        size={20}
                     />
                 )
             }

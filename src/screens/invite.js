@@ -14,7 +14,7 @@ const Invite = () => {
             style={({ pressed }) => [
             styles.shareButton,
             {
-              backgroundColor: pressed ? '#bee6af' :'#8BD272',
+              backgroundColor: pressed ? '#bee6af' :AppStyles.colour.secondary,
             }
             
             ]}>
@@ -29,18 +29,18 @@ const styles = StyleSheet.create({
   background: {
       top: 20,
       //height: windowHeight / 2,
-      backgroundColor: '#F3F3F3',
+      backgroundColor: AppStyles.colour.background,
       alignItems: 'center'
   },
   titleText: {
-    color: "#7879F1",
+    color: AppStyles.colour.primary,
     fontSize: 32,
     justifyContent: 'center',
     textAlign: 'center',
     padding: 30
   },
   shareButton: {
-    backgroundColor: '#8BD272',
+    backgroundColor: AppStyles.colour.secondary,
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 8,

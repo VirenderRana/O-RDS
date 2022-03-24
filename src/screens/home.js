@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, Dimensions, ScrollView, Pressable} from 'react-native';
+import AppStyles from '../utils/globalStyles';
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
@@ -26,13 +27,12 @@ const Home = () => {
                                style={({ pressed }) => [
                                 styles.startButton,
                                 {
-                                  backgroundColor: pressed ? '#bee6af' :'#8BD272',
+                                  backgroundColor: pressed ? '#bee6af' :AppStyles.colour.secondary,
                                 }
                                 
                                ]}>
                             <Text style = {{ color: 'white', fontSize: 20}} >Start</Text>
                         </Pressable>
-                        {/** <Button title="Start" style={styles.startButton} color= "#8BD272"/> */ }
                     </View>
                 </View>
             </ScrollView>
@@ -45,17 +45,17 @@ const Home = () => {
   const styles = StyleSheet.create({
       background: {
           height: windowHeight,
-          backgroundColor: '#F3F3F3',
+          backgroundColor: AppStyles.colour.background,
           alignItems: 'center'
       },
       reward: {
           fontSize: 64,
-          color: '#8BD272'
+          color: AppStyles.colour.secondary
       },
       rewardBox: {
           width: '100%',
           height: windowHeight / 4.5, // 152
-          backgroundColor: "#7879F1",
+          backgroundColor: AppStyles.colour.primary,
           justifyContent: 'center',
           alignItems: 'center'
       },
@@ -72,7 +72,7 @@ const Home = () => {
           height: windowHeight / 3, // 280
           width: windowWidth / 1.2, // 350
           margin: 20,
-          backgroundColor: '#FFFFFF',
+          backgroundColor: AppStyles.colour.white,
           justifyContent: 'center',
           alignItems: 'center',
           borderRadius: 20,

@@ -6,14 +6,14 @@ import { Menu, MenuOptions, MenuOption, MenuTrigger, MenuProvider } from 'react-
 const More = () => {
   return (
    // <MenuProvider>
-      <View style={styles.background}>
+      <ScrollView style={styles.background}>
 
       <View style={styles.row}>
       <FontAwesome5 style={styles.icon} name = 'credit-card' /> 
          <Pressable style={({ pressed }) => [
             styles.shareButton,
             {
-              backgroundColor: pressed ? 'lightgrey' :'#F3F3F3',
+              backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.background,
             }
             
             ]}>
@@ -36,13 +36,13 @@ const More = () => {
               styles.shareButton,
               {
                 //Style change here
-                backgroundColor: pressed ? 'lightgrey' :'#F3F3F3',
+                backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.background,
               }
               
               ]}>
             
               
-              <Text style={styles.text}>My Profile</Text>
+              <Text style={styles.text}> My Profile</Text>
             
             </Pressable>
           </View>
@@ -53,7 +53,7 @@ const More = () => {
               styles.shareButton,
               {
                 //Style change here
-                backgroundColor: pressed ? 'lightgrey' :'#F3F3F3',
+                backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.background,
               }
               
               ]}>
@@ -68,16 +68,16 @@ const More = () => {
               styles.shareButton,
               {
                 //Style change here
-                backgroundColor: pressed ? 'lightgrey' :'#F3F3F3',
+                backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.background,
               }
               
               ]}>
             
-            <Text style={styles.text}>Log Out</Text>
+            <Text style={styles.text}> Log Out</Text>
           </Pressable>
         </View>
 
-      </View>
+      </ScrollView>
   //  </MenuProvider>
   )
 }
@@ -87,10 +87,9 @@ const styles = StyleSheet.create({
     
     top: 20,
     left: 10,
-    backgroundColor: '#F3F3F3'
+    backgroundColor: AppStyles.colour.background
   },
   row: {
-
     flexDirection: "row",
     borderColor: "#cccccc",
     borderBottomWidth: 1,
@@ -98,12 +97,13 @@ const styles = StyleSheet.create({
     
   },
   text: {
-    margin: 8,
-    fontSize: 32,
+    margin: 10,
+    fontSize: 20,
   },
   icon: {
-    fontSize: 32,
-    color: "#7879F1",
+    fontSize: 28,
+    color: AppStyles.colour.primary,
+    margin: 10
   }
 
 });
