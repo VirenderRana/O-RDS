@@ -1,10 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import Home from './src/screens/home';
-import { Root } from './src/navigation/root';
-
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Root } from './src/navigation/root';import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
   return (

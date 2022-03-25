@@ -4,9 +4,14 @@ import AppStyles from '../utils/globalStyles';
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
+import { useNavigation } from '@react-navigation/native';
 
 const Home = () => {
     const [reward, setReward] = useState(0);
+    const navigation = useNavigation(); 
+    const startSurveyHandler = () => {
+        navigation.navigate("Start");
+    }
 
     return (
         <View style={styles.background}>
@@ -24,6 +29,7 @@ const Home = () => {
                         <Text style={styles.questionAmount}>25 Questions</Text>
                         <Text style={{fontSize: 32}}>Survey 1</Text>
                         <Pressable 
+                        onPress = {startSurveyHandler}
                                style={({ pressed }) => [
                                 styles.startButton,
                                 {
@@ -83,13 +89,13 @@ const Home = () => {
           elevation: 5
       },
       staticReward: {
-        fontSize: 24,
+        fontSize: 16,
         position: "absolute",
         left: 15,
         top: 15
       },
       questionAmount: {
-        fontSize: 24,
+        fontSize: 16,
         position: "absolute",
         right: 15,
         top: 15

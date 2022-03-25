@@ -2,18 +2,25 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, Dimensions, ScrollView, Pressable } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { Menu, MenuOptions, MenuOption, MenuTrigger, MenuProvider } from 'react-native-popup-menu';
+import { useNavigation } from '@react-navigation/native';
 
 const More = () => {
+  const navigation = useNavigation(); 
+  const paymentInfoRouter = () => {
+    navigation.navigate("Payment Info");
+  }
   return (
    // <MenuProvider>
       <ScrollView style={styles.background}>
 
       <View style={styles.row}>
       <FontAwesome5 style={styles.icon} name = 'credit-card' /> 
-         <Pressable style={({ pressed }) => [
+         <Pressable 
+           onPress = {paymentInfoRouter}
+           style={({ pressed }) => [
             styles.shareButton,
             {
-              backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.background,
+              backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.white,
             }
             
             ]}>
@@ -36,7 +43,7 @@ const More = () => {
               styles.shareButton,
               {
                 //Style change here
-                backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.background,
+                backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.white,
               }
               
               ]}>
@@ -53,7 +60,7 @@ const More = () => {
               styles.shareButton,
               {
                 //Style change here
-                backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.background,
+                backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.white,
               }
               
               ]}>
@@ -68,7 +75,7 @@ const More = () => {
               styles.shareButton,
               {
                 //Style change here
-                backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.background,
+                backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.white,
               }
               
               ]}>
@@ -85,11 +92,12 @@ const More = () => {
 const styles = StyleSheet.create({
   background: {
     
-    top: 20,
-    left: 10,
-    backgroundColor: AppStyles.colour.background
+    // top: 20,
+    // left: 10,
+    backgroundColor: AppStyles.colour.white
   },
   row: {
+    top: 8,
     flexDirection: "row",
     borderColor: "#cccccc",
     borderBottomWidth: 1,
@@ -99,6 +107,7 @@ const styles = StyleSheet.create({
   text: {
     margin: 10,
     fontSize: 20,
+    backgroundColor: AppStyles.colour.white
   },
   icon: {
     fontSize: 28,

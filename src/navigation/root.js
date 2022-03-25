@@ -1,18 +1,19 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from '../screens/home';
+import HomeStack from '../navigation/homeStack';
 import Help from '../screens/help';
 import Invite from '../screens/invite';
-import More from '../screens/more';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import AppStyles from '../utils/globalStyles';
+import MoreStack from './moreStack';
 
 const Tab = createBottomTabNavigator();
 
 export const Root = () => {
   return (
     <Tab.Navigator
+    initialRouteName="Surveys"
+    
         screenOptions={({route})=>({
             tabBarIcon: ({focused, size, color}) => {
                 let iconName;
@@ -34,14 +35,15 @@ export const Root = () => {
                         color={AppStyles.colour.primary}
                         size={20}
                     />
-                )
-            }
+                )    
+            },
+            headerShown: false
         })   
         }
         >
         <Tab.Screen
             name="Surveys"
-            component={Home}
+            component={HomeStack}
         />
         <Tab.Screen
             name="Invite Friends"
@@ -53,7 +55,7 @@ export const Root = () => {
         />
         <Tab.Screen
             name="More"
-            component={More}
+            component={MoreStack}
         />
     </Tab.Navigator>
   )

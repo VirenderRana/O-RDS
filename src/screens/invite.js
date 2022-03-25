@@ -11,13 +11,13 @@ const Invite = () => {
     <View style={styles.background}>
         <Text style={styles.titleText}>Invite Friends to join this Survey</Text>
         <Pressable 
-            style={({ pressed }) => [
-            styles.shareButton,
-            {
-              backgroundColor: pressed ? '#bee6af' :AppStyles.colour.secondary,
-            }
-            
-            ]}>
+          style={({ pressed }) => [
+          styles.shareButton,
+          {
+            backgroundColor: pressed ? '#bee6af' :AppStyles.colour.secondary,
+          }
+          
+        ]}>
           <Text style = {{ color: 'white', fontSize: 20}} >Share your invite link</Text>
         </Pressable>
         <Text style={styles.usedCounter}>0/4 used</Text> 
@@ -29,10 +29,12 @@ const styles = StyleSheet.create({
   background: {
       top: 20,
       //height: windowHeight / 2,
-      backgroundColor: AppStyles.colour.background,
+      flex: 1,
+      backgroundColor: AppStyles.colour.white,
       alignItems: 'center'
   },
   titleText: {
+    top:30,
     color: AppStyles.colour.primary,
     fontSize: 32,
     justifyContent: 'center',
@@ -43,6 +45,7 @@ const styles = StyleSheet.create({
     backgroundColor: AppStyles.colour.secondary,
     alignItems: 'center',
     justifyContent: 'center',
+    margin: 15,
     paddingVertical: 8,
     width: windowWidth / 1.2,
     borderRadius: 20,
