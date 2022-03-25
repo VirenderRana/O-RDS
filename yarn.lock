@@ -5414,6 +5414,11 @@ react-native-codegen@^0.0.6:
     jscodeshift "^0.11.0"
     nullthrows "^1.1.1"
 
+react-native-contacts@^7.0.4:
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-contacts/-/react-native-contacts-7.0.4.tgz#6f084f651bb5dde433acc22553c6d1ca909e46b7"
+  integrity sha512-x6K9TMC0XBH/yyfqYh5BGS9JI1PpA2Ac/XHVVFVP8F8lPLNexQ0qPsNBo1cy9l2pPqlijpC33+FU0ty/N5iOWA==
+
 react-native-gesture-handler@~2.1.0:
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-2.1.3.tgz#b96f1e61932d5062cb1023259e1649d65f78338b"
