@@ -5,12 +5,20 @@ import { styleProps } from 'react-native-web/dist/cjs/modules/forwardedProps';
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
+import { useNavigation } from '@react-navigation/native';
 
 const Invite = () => {
+
+  const navigation = useNavigation(); 
+  const inviteLinkRouter = () => {
+    navigation.navigate("Invite Link");
+  }
+  
   return (
     <View style={styles.background}>
         <Text style={styles.titleText}>Invite Friends to join this Survey</Text>
         <Pressable 
+          onPress={inviteLinkRouter}
           style={({ pressed }) => [
           styles.shareButton,
           {

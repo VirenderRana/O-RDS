@@ -1,11 +1,11 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeStack from '../navigation/homeStack';
 import Help from '../screens/help';
-import Invite from '../screens/invite';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import AppStyles from '../utils/globalStyles';
+import HomeStack from './homeStack';
 import MoreStack from './moreStack';
+import InviteStack from './inviteStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -47,7 +47,7 @@ export const Root = () => {
         />
         <Tab.Screen
             name="Invite Friends"
-            component={Invite}
+            component={InviteStack}
         />
         <Tab.Screen
             name="Get Help"

@@ -9,6 +9,12 @@ const More = () => {
   const paymentInfoRouter = () => {
     navigation.navigate("Payment Info");
   }
+  const myProfileRouter = () => {
+    navigation.navigate("My Profile");
+  }
+  const TermsAndConditionsRouter = () => {
+    navigation.navigate("Terms");
+  }
   return (
    // <MenuProvider>
       <ScrollView style={styles.background}>
@@ -16,7 +22,7 @@ const More = () => {
       <View style={styles.row}>
       <FontAwesome5 style={styles.icon} name = 'credit-card' /> 
          <Pressable 
-           onPress = {paymentInfoRouter}
+           onPress={paymentInfoRouter}
            style={({ pressed }) => [
             styles.shareButton,
             {
@@ -39,14 +45,16 @@ const More = () => {
         */}
         <View style={styles.row}>
           <FontAwesome5 style={styles.icon} name='user'/> 
-          <Pressable style={({ pressed }) => [
-              styles.shareButton,
-              {
-                //Style change here
-                backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.white,
-              }
-              
-              ]}>
+          <Pressable 
+            onPress={myProfileRouter}
+            style={({ pressed }) => [
+                styles.shareButton,
+                {
+                  //Style change here
+                  backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.white,
+                }
+                
+                ]}>
             
               
               <Text style={styles.text}> My Profile</Text>
@@ -56,7 +64,9 @@ const More = () => {
 
         <View style={styles.row}>
           <FontAwesome5 style={styles.icon} name = 'list-alt' /> 
-          <Pressable style={({ pressed }) => [
+          <Pressable 
+              onPress={TermsAndConditionsRouter}
+              style={({ pressed }) => [
               styles.shareButton,
               {
                 //Style change here
