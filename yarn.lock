@@ -3404,6 +3404,11 @@ expo-modules-core@0.6.5:
     compare-versions "^3.4.0"
     invariant "^2.2.4"
 
+expo-sms@~10.1.0:
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/expo-sms/-/expo-sms-10.1.1.tgz#841797dc9ddb7da05dd38d6a09ece99d7409150d"
+  integrity sha512-vGxqb6uD1zEd8YSTeL80IS8ghZvLp5tr1i+wAMPWesx+LnnbH/jkJAUIyg9otakOLFoC/DXqmLAke6OqDqSCcg==
+
 expo-status-bar@~1.2.0:
   version "1.2.0"
   resolved "https://registry.npmjs.org/expo-status-bar/-/expo-status-bar-1.2.0.tgz"
@@ -5481,6 +5486,11 @@ react-native-screens@^3.4.0, react-native-screens@~3.10.1:
   dependencies:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
+
+react-native-sms@^1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/react-native-sms/-/react-native-sms-1.11.0.tgz#02e191ef35fae163d7fae1f78f42f202c33f8c9e"
+  integrity sha512-G5q61qGknNyftN1cFkXfH46UkQWMf3fy/M1fxK/QJzLDJAgCSeBqge62FgJClw1FqzYGSjZeoZvkgpWGDCd3wQ==
 
 react-native-svg@^12.3.0:
   version "12.3.0"
