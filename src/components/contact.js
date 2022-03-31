@@ -1,21 +1,65 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import {useEffect, useState} from 'react';
+import { View, Text, StyleSheet, Pressable } from "react-native";
+import AppStyles from '../utils/globalStyles';
+import * as SMS from 'expo-sms';
+
+const retrieveNumber = (contact, phoneNum) => {
+    
+    try {
+      phoneNum = contact?.phoneNumbers[0]?.number;
+      return phoneNum;
+      
+    }
+    catch (e) {
+     phoneNum = ('no phone number found');
+     return phoneNum;
+      
+    }
+    
+}
+
+const loadSMS = async (phoneNum) => {
+  //const [contacts, setContacts] = useState([]);
+
+  const { result } = await SMS.sendSMSAsync(
+    [phoneNum, phoneNum],
+    'This is a test Message',
+    {
+      //attachments: {
+      //  uri: 'path/myfile.png',
+      //  mimeType: 'image/png',
+      //  filename: 'myfile.png',
+      //},
+    }
+  );
+  
+};
 
 const Contact = ({ contact }) => {
+
+  var phoneNum= '';
+
   return (
+    <Pressable onPress={() => {{loadSMS(phoneNum)}}} style={({pressed}) => [{backgroundColor: pressed ? AppStyles.colour.background: AppStyles.colour.white}]}>
     <View style={styles.contactCon}>
+      
       <View style={styles.imgCon}>
         <View style={styles.placeholder}>
           <Text style={styles.txt}>{contact?.name[0]}</Text>
         </View>
       </View>
+
       <View style={styles.contactDat}>
-        <Text style={styles.name}>{contact?.name}</Text>
-        <Text style={styles.phoneNumber}>
-         {/* {contact?.phoneNumbers[0]?.number}  */}
+      <Text style={styles.name}>{contact?.name} </Text>
+      <Text style={styles.phoneNumber}>
+          {phoneNum = retrieveNumber(contact, phoneNum)}
         </Text>
+       
       </View>
+      
     </View>
+    </Pressable>
   );
 };
 const styles = StyleSheet.create({

@@ -11,6 +11,7 @@ const InviteLink = () => {
       if (status === "granted") {
         const { data } = await Contacts.getContactsAsync({
           fields: [Contacts.PHONE_NUMBERS]
+          
         });
         if (data.length > 0) {
           setContacts(data);
