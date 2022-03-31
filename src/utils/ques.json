@@ -1,0 +1,55 @@
+{
+    "surveyName": "Survey 1",
+    "numQues": 2,
+    "reward": 10,
+    "questions": [
+        {
+            "index": 1,
+            "selectionType": "check",
+            "numSelections": 4,
+            "question" : "What is your age?",
+            "selections" : [
+                {
+                    "index": 1,
+                    "content": "<18"
+                },
+                {
+                    "index": 2,
+                    "content": "18-25"
+                },
+                {
+                    "index": 3,
+                    "content": "26-35"
+                },
+                {
+                    "index": 4,
+                    "content": ">35"
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "selectionType": "check",
+            "numSelections": 4,
+            "question" : "Where do you stay?",
+            "selections" : [
+                {
+                    "index": 1,
+                    "content": "Chicago"
+                },
+                {
+                    "index": 2,
+                    "content": "LA"
+                },
+                {
+                    "index": 3,
+                    "content": "NY"
+                },
+                {
+                    "index": 4,
+                    "content": "St. Louis"
+                }
+            ]
+        }
+]
+}

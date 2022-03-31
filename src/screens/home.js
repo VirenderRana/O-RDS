@@ -75,9 +75,9 @@ const Home = () => {
           elevation: 3
       },
       surveyCard: {
-          height: windowHeight / 3, // 280
-          width: windowWidth / 1.2, // 350
-          margin: 20,
+          height: 280, // 280 windowHeight / 3
+          width: 370, // 350 windowWidth / 1.2
+          margin: 10,
           backgroundColor: AppStyles.colour.white,
           justifyContent: 'center',
           alignItems: 'center',
