@@ -19,80 +19,77 @@ const More = () => {
    // <MenuProvider>
       <ScrollView style={styles.background}>
 
-      <View style={styles.row}>
-      <FontAwesome5 style={styles.icon} name = 'credit-card' /> 
-         <Pressable 
-           onPress={paymentInfoRouter}
-           style={({ pressed }) => [
+
+        <Pressable 
+          onPress={paymentInfoRouter}
+          style={({ pressed }) => [
+          styles.shareButton,
+          {
+            backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.white,
+          }
+          
+          ]}>
+        
+          <View style={styles.row}>
+            <FontAwesome5 style={styles.icon} name = 'credit-card' /> 
+            <Text style={styles.text}>Payment Info </Text>
+            </View>
+        </Pressable>
+        
+
+
+        <Pressable 
+          onPress={myProfileRouter}
+          style={({ pressed }) => [
+              styles.shareButton,
+              {
+                //Style change here
+                backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.white,
+              }
+              
+              ]}>
+          
+            <View style={styles.row}>
+              <FontAwesome5 style={styles.icon} name='user'/> 
+              <Text style={styles.text}> My Profile</Text>
+              </View>
+          </Pressable>
+        
+
+
+        <Pressable 
+            onPress={TermsAndConditionsRouter}
+            style={({ pressed }) => [
             styles.shareButton,
             {
+              //Style change here
               backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.white,
             }
             
             ]}>
-          
-            
-            <Text style={styles.text}>Payment Info </Text>
-          
-          </Pressable>
-        </View>
-        {/**   <Menu>
-            <MenuTrigger text='Select action' />
-            <MenuOption>
-              <MenuOption onSelect={() => alert('Save')} text='Save' />
-            </MenuOption>
-          </Menu>
-        */}
-        <View style={styles.row}>
-          <FontAwesome5 style={styles.icon} name='user'/> 
-          <Pressable 
-            onPress={myProfileRouter}
-            style={({ pressed }) => [
-                styles.shareButton,
-                {
-                  //Style change here
-                  backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.white,
-                }
-                
-                ]}>
-            
-              
-              <Text style={styles.text}> My Profile</Text>
-            
-            </Pressable>
-          </View>
-
-        <View style={styles.row}>
-          <FontAwesome5 style={styles.icon} name = 'list-alt' /> 
-          <Pressable 
-              onPress={TermsAndConditionsRouter}
-              style={({ pressed }) => [
-              styles.shareButton,
-              {
-                //Style change here
-                backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.white,
-              }
-              
-              ]}>
-            
+          <View style={styles.row}>
+            <FontAwesome5 style={styles.icon} name = 'list-alt' /> 
             <Text style={styles.text}>Terms and Conditions</Text>
-          </Pressable>
-        </View>
+          </View>
+        </Pressable>
+        
   
-        <View style={styles.row}>
-          <FontAwesome5 style={styles.icon} name = 'window-close' /> 
-          <Pressable style={({ pressed }) => [
-              styles.shareButton,
-              {
-                //Style change here
-                backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.white,
-              }
-              
-              ]}>
+ 
+        <Pressable style={({ pressed }) => [
+            styles.shareButton,
+            {
+              //Style change here
+              backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.white,
+            }
             
+            ]}>
+
+          <View style={styles.row}>
+            <FontAwesome5 style={styles.icon} name = 'window-close' /> 
             <Text style={styles.text}> Log Out</Text>
-          </Pressable>
-        </View>
+          </View>
+        </Pressable>
+        
 
       </ScrollView>
   //  </MenuProvider>
@@ -117,7 +114,6 @@ const styles = StyleSheet.create({
   text: {
     margin: 10,
     fontSize: 20,
-    backgroundColor: AppStyles.colour.white
   },
   icon: {
     fontSize: 28,

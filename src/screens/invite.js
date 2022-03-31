@@ -35,7 +35,7 @@ const Invite = () => {
 
 const styles = StyleSheet.create({
   background: {
-      top: 20,
+      
       //height: windowHeight / 2,
       flex: 1,
       backgroundColor: AppStyles.colour.white,
