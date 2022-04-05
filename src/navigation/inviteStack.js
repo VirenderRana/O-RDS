@@ -31,9 +31,9 @@ const InviteStack = () => {
       <Stack.Screen name="Invite Link" component={InviteLink} />
       <Stack.Screen name="Invite Contacts" component={InviteContacts} />
       <Stack.Screen name="Invite Facebook" component={InviteFacebook} />
-      <Stack.Screen name="Invite Email" component={InviteEmail} />
 
     </Stack.Navigator>
   )
 }
+
 export default InviteStack

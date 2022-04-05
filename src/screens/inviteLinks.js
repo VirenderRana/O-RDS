@@ -6,6 +6,7 @@ const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
 import { useNavigation } from '@react-navigation/native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Email from './inviteEmail';
 
 const Invite = () => {
 
@@ -15,11 +16,7 @@ const Invite = () => {
   const inviteContactRouter = () => {
     navigation.navigate("Invite Contacts");
   }
-
-  const inviteEmailRouter = () => {
-    navigation.navigate("Invite Email");
-  }
-
+  
   const inviteFacebookRouter = () => {
       navigation.navigate("Invite Facebook");
   }
@@ -45,7 +42,7 @@ const Invite = () => {
         </Pressable>
 
          <Pressable 
-            onPress={inviteEmailRouter}
+            onPress={Email}
             style={({ pressed }) => [
             {
             fontColor: pressed ? 'lightgrey' :AppStyles.colour.white,
