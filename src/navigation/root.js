@@ -20,7 +20,7 @@ export const Root = () => {
                 if(route.name==='Surveys') {
                     iconName = "poll-h";
                 }
-                else if (route.name === 'Invite Friends') {
+                else if (route.name === 'Invite Others') {
                     iconName = "user-plus";
                 }
                 else if (route.name === 'Get Help') {
@@ -46,7 +46,7 @@ export const Root = () => {
             component={HomeStack}
         />
         <Tab.Screen
-            name="Invite Friends"
+            name="Invite Others"
             component={InviteStack}
         />
         <Tab.Screen

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, Dimensions, ScrollView, FlatList, Permi
 import Contact from '../components/contact';
 import * as Contacts from "expo-contacts";
 
-const InviteLink = () => {
+const InviteContacts = () => {
   const [contacts, setContacts] = useState([]);
   useEffect(() => {
     (async () => {
@@ -43,4 +43,4 @@ const styles = StyleSheet.create({
 
   
 
-export default InviteLink
+export default InviteContacts
