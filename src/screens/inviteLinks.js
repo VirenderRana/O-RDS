@@ -67,9 +67,9 @@ const Invite = () => {
             ]}>
         
             <View style={styles.row}>
-                <FontAwesome5 style={styles.icon} name = 'thumbs-up' /> 
-                <Text style={styles.text}>Facebook</Text>
-                </View>
+              <FontAwesome5 style={styles.icon} name = 'thumbs-up' /> 
+              <Text style={styles.text}>Facebook</Text>
+            </View>
         </Pressable>
          
 

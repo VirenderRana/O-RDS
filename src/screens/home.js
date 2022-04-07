@@ -22,7 +22,7 @@ const Home = () => {
             </View>
             
             <ScrollView
-        showsVerticalScrollIndicator={false}>
+            showsVerticalScrollIndicator={false}>
                 <View>
                     <View style={styles.surveyCard}>
                         <Text style={styles.staticReward} >$10</Text>
