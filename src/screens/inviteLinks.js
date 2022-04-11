@@ -94,11 +94,11 @@ const Invite = () => {
    },
    text: {
      margin: 10,
-     fontSize: 30,
+     fontSize: 25,
 
    },
    icon: {
-     fontSize: 38,
+     fontSize: 25,
      color: AppStyles.colour.primary,
      margin: 10
    }

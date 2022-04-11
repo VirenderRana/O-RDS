@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Pressable, ScrollView, TextInput } from 'react-native';
 import CheckBox from "expo-checkbox";
 import Slider from '@react-native-community/slider';
@@ -6,42 +6,60 @@ import data from '../utils/ques.json';
 import AppStyles from '../utils/globalStyles';
 
 const StartSurvey = () => {
+  const [survey, setSurvey] = useState({});
   const [checked, setChecked] = useState({});
-  const [quesIndex, setQuesIndex] = useState(0);
-  const [text, setText] = useState("Enter");
+  const [quesIndex, setQuesIndex] = useState(1);
 
-  const onChangeText = () => {
+  useEffect(() => {
+    setSurvey(data);
+        
+  })
 
-  }
-
-  const selectionGenerator = (data, selectionType) => {
-    if(selectionType === "check"){
+  const selectionGenerator = (currQuestion) => {
+    if(currQuestion.selectionType === "check"){
       return(
-        data.questions[quesIndex].selections.map((item) => (
+        currQuestion.selections.map((item) => (
             
           <View key={item.index} style={styles.wrapper}>
             <CheckBox
               value={checked[item.index]}
               onValueChange={(newValue) => { setChecked({...checked, [item.index]: newValue}) }}
-              color={checked[item.index] ? "#4630EB" : undefined}
+              color={checked[item.index] ? "#4630EB" : false}
             />
             <Text style={styles.text}>{item.content}</Text>
           </View>
         ))
       )
     }
-    else if(selectionType === "text"){
+    else if(currQuestion.selectionType === "single-check"){
+      return(
+        currQuestion.selections.map((item) => (
+            
+          <View key={item.index} style={styles.wrapper}>
+            {setChecked([item.index])}
+            <CheckBox
+              value={checked[item.index]}
+              onValueChange={(newValue) => { setChecked({...checked, [item.index]: newValue}) }}
+              color={checked[item.index] ? "#4630EB" : false}
+            />
+            <Text style={styles.text}>{item.content}</Text>
+          </View>
+        ))
+      )
+    }
+    else if(currQuestion.selectionType === "text"){
       return(
         <View style={styles.wrapper}>
           <TextInput style={styles.textInput} />
-        </View>
+          {console.log(checked)}
+        </View> 
       )
     }
-    else if(selectionType === "slider"){
+    else if(currQuestion.selectionType === "slider"){
       return(
         <View style={styles.wrapper}>
           <Slider
-            style={{width: "90%", height: 40}}
+            style={{width: "100%", height: 40}}
             minimumValue={0}
             maximumValue={10}
             step={1}
@@ -51,18 +69,29 @@ const StartSurvey = () => {
         </View>
       )
     }
+    else{
+      <View>
+        <Text>Invalid Selection type!</Text>
+      </View>
+    }
   }
 
   const nextQuesHandler = () => {
-    if(quesIndex<data.numQues-1){
+    if(quesIndex<data.numQues){
       setQuesIndex(quesIndex+1);
     }
   }
+
+  
   return (
     <ScrollView>
-      <View style={styles.container}>
-        <Text style = {styles.question}>Q{data.questions[quesIndex].index}: {data.questions[quesIndex].question}</Text>
-        {selectionGenerator(data, data.questions[quesIndex].selectionType)}
+      <View style={styles.questionContainer}>
+        {data.questions.filter((qstn) => qstn.index===quesIndex).map((currQuestion)=>(
+          <View key={currQuestion.index}>
+            <Text style = {styles.question}>Q{currQuestion.index}: {currQuestion.question}</Text>
+            {selectionGenerator(currQuestion)}
+          </View>
+        ))}
       </View>
       <View style={styles.buttonWrapper}>
         <Pressable 
@@ -86,16 +115,16 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     paddingRight: 10,
   },
-  container: {
+  questionContainer: {
     backgroundColor: AppStyles.colour.white,
     margin: 10
   },
   textInput: {
+    flexGrow: 1,
     height: 40,
-    width: "90%",
-    margin: 12,
+    margin: 15,
     borderWidth: 1,
-    padding: 10,
+    paddingLeft: 10
   },
   nextButton: {
     width: "50%",
@@ -109,16 +138,14 @@ const styles = StyleSheet.create({
     margin: 15
   },
   text: {
-    marginLeft: 10,
+    marginLeft: 15,
     fontSize: 16
   },
   wrapper: {
-    display: "flex",
     flexDirection: "row",
     alignContent: "center",
-    paddingVertical: 15,
-    paddingLeft: 15
+    padding: 15
   },
 });
 
-export default StartSurvey
+export default StartSurvey;

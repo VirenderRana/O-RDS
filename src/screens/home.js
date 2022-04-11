@@ -30,14 +30,11 @@ const Home = () => {
                         <Text style={{fontSize: 32}}>Survey 1</Text>
                         <Pressable 
                         onPress = {startSurveyHandler}
-                               style={({ pressed }) => [
-                                styles.startButton,
-                                {
-                                  backgroundColor: pressed ? '#bee6af' :AppStyles.colour.secondary,
-                                }
-                                
-                               ]}>
-                            <Text style = {{ color: 'white', fontSize: 20}} >Start</Text>
+                        style={({ pressed }) => [
+                        styles.startButton,
+                        {backgroundColor: pressed ? '#bee6af' :AppStyles.colour.secondary}
+                        ]}>
+                        <Text style = {{ color: 'white', fontSize: 20}} >Start</Text>
                         </Pressable>
                     </View>
                 </View>
