@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, Dimensions, ScrollView, FlatList, Permi
 import Contact from '../components/contact';
 import * as Contacts from "expo-contacts";
 
+
 const InviteContacts = () => {
   const [contacts, setContacts] = useState([]);
   useEffect(() => {
@@ -15,7 +16,7 @@ const InviteContacts = () => {
         });
         if (data.length > 0) {
           setContacts(data);
-          console.log(data[0]);
+          //console.log(data[0]);
         }
       }
     })();

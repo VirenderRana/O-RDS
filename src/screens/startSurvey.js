@@ -4,14 +4,35 @@ import CheckBox from "expo-checkbox";
 import Slider from '@react-native-community/slider';
 import data from '../utils/ques.json';
 import AppStyles from '../utils/globalStyles';
+import { setDoc, doc, getDoc } from 'firebase/firestore';
+import { firestore } from '../../firebase';
+import { v4 as uuidv4 } from 'uuid';
+
+
+
+import { useNavigation } from '@react-navigation/native';
 
 const StartSurvey = () => {
   const [survey, setSurvey] = useState({});
   const [checked, setChecked] = useState({});
   const [quesIndex, setQuesIndex] = useState(1);
+  const navigation = useNavigation(); 
 
   useEffect(() => {
+    const docRef = doc(firestore, "Surveyques", "WSTM");
+    //const sdata = await getDoc(docRef);
+    //const user = firestore().collection('Surveyques').doc('WSTM').get();
+
+    async function asyncCall() {
+      //console.log('calling');
+      const sdata = await getDoc(docRef);
+      //console.log(sdata);
+      // expected output: "resolved"
+    }
+    asyncCall();
+    //console.log(user);
     setSurvey(data);
+    console.log(survey);
         
   })
 
@@ -20,11 +41,11 @@ const StartSurvey = () => {
       return(
         currQuestion.selections.map((item) => (
             
-          <View key={item.index} style={styles.wrapper}>
+          <View key={item.indexsel} style={styles.wrapper}>
             <CheckBox
-              value={checked[item.index]}
-              onValueChange={(newValue) => { setChecked({...checked, [item.index]: newValue}) }}
-              color={checked[item.index] ? "#4630EB" : false}
+              value={checked[item.indexsel]}
+              onValueChange={(newValue) => { setChecked({...checked, [item.indexsel]: newValue}) }}
+              color={checked[item.indexsel] ? "#4630EB" : false}
             />
             <Text style={styles.text}>{item.content}</Text>
           </View>
@@ -35,12 +56,12 @@ const StartSurvey = () => {
       return(
         currQuestion.selections.map((item) => (
             
-          <View key={item.index} style={styles.wrapper}>
-            {setChecked([item.index])}
+          <View key={item.indexsel} style={styles.wrapper}>
+            {setChecked([item.indexsel])}
             <CheckBox
-              value={checked[item.index]}
-              onValueChange={(newValue) => { setChecked({...checked, [item.index]: newValue}) }}
-              color={checked[item.index] ? "#4630EB" : false}
+              value={checked[item.indexsel]}
+              onValueChange={(newValue) => { setChecked({...checked, [item.indexsel]: newValue}) }}
+              color={checked[item.indexsel] ? "#4630EB" : false}
             />
             <Text style={styles.text}>{item.content}</Text>
           </View>
@@ -50,23 +71,34 @@ const StartSurvey = () => {
     else if(currQuestion.selectionType === "text"){
       return(
         <View style={styles.wrapper}>
-          <TextInput style={styles.textInput} />
-          {console.log(checked)}
+          <TextInput style={styles.textInput}
+          value = {checked[currQuestion.index]}
+            onChangeText={(newValue) => { setChecked({...checked, [currQuestion.index]: newValue}) }}
+          />
+          
         </View> 
       )
     }
     else if(currQuestion.selectionType === "slider"){
       return(
-        <View style={styles.wrapper}>
+        <View>
+            <View style={styles.wrapper}>
+          
           <Slider
             style={{width: "100%", height: 40}}
             minimumValue={0}
             maximumValue={10}
             step={1}
+            onSlidingComplete = {(newValue) => { setChecked({...checked, [currQuestion.index]: newValue}) }}
             minimumTrackTintColor="#bee6af"
             maximumTrackTintColor="#000000"
           />
+          
         </View>
+        <Text style={styles.sliderText}>     Disagree                                                               Agree</Text>
+        </View>
+        
+        
       )
     }
     else{
@@ -77,8 +109,29 @@ const StartSurvey = () => {
   }
 
   const nextQuesHandler = () => {
+    console.log(checked);
     if(quesIndex<data.numQues){
       setQuesIndex(quesIndex+1);
+    }
+    else{
+     // let uuid = uuidv4(); uuid.slice(0,8)
+      // async function asyncCal() {
+      // await SecureStore.setItemAsync('secure_deviceid', JSON.stringify(uuid));
+      // }
+      // asyncCal();
+      // let fetchUUID;
+      // async function asyncCall() {
+      //   fetchUUID = await SecureStore.getItemAsync('secure_deviceid');
+      //   // expected output: "resolved"
+      // }
+      // asyncCall();
+      
+      //console.log(uuid);
+      setDoc(doc(firestore, "User_responses", "${Math.random()}"), {
+        checked
+      });
+      //setReward(10);
+      navigation.navigate("Home", { Screen: 'Surveys', params:{ Screen: "Invite Others"} });
     }
   }
 
@@ -103,7 +156,7 @@ const StartSurvey = () => {
           }
           
           ]}>
-            <Text style = {{ color: 'white', fontSize: 20}} >Next question</Text>
+            <Text style = {{ color: 'white', fontSize: 20}} >{(quesIndex<data.numQues)? "Next question":"Submit"}</Text>
         </Pressable>
       </View>
     </ScrollView>
@@ -141,7 +194,12 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     fontSize: 16
   },
+  sliderText: {
+    display: "flex",
+    flexGrow: 1
+  },
   wrapper: {
+    flexGrow: 1,
     flexDirection: "row",
     alignContent: "center",
     padding: 15

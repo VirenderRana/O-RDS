@@ -1,68 +1,212 @@
 {
-    "surveyName": "Survey 1",
-    "numQues": 4,
+    "surveyName": "Women in stem",
+    "numQues": 9,
     "reward": 10,
     "questions": [
         {
             "index": 1,
-            "selectionType": "check",
-            "numSelections": 4,
+            "selectionType": "text",
+            "numSelections": 1,
             "question" : "What is your age?",
-            "selections" : [
-                {
-                    "index": 11,
-                    "content": "<18"
-                },
-                {
-                    "index": 12,
-                    "content": "18-25"
-                },
-                {
-                    "index": 13,
-                    "content": "26-35"
-                },
-                {
-                    "index": 14,
-                    "content": ">35"
-                }
-            ]
+            "selections" : []
         },
         {
             "index": 2,
             "selectionType": "check",
-            "numSelections": 4,
-            "question" : "Where do you stay?",
+            "numSelections": 6,
+            "question" : "What is your ethnicity / demographic?",
             "selections" : [
                 {
-                    "index": 21,
-                    "content": "Chicago"
+                    "indexsel": 21,
+                    "content": "White"
                 },
                 {
-                    "index": 22,
-                    "content": "LA"
+                    "indexsel": 22,
+                    "content": "Black / African American"
                 },
                 {
-                    "index": 23,
-                    "content": "NY"
+                    "indexsel": 23,
+                    "content": "Asian"
                 },
                 {
-                    "index": 24,
-                    "content": "St. Louis"
+                    "indexsel": 24,
+                    "content": "American Indian or Alaska Native"
+                },
+                {
+                    "indexsel": 25,
+                    "content": "Native Hawaiian or Other Pacific Islander"
+                },
+                {
+                    "indexsel": 26,
+                    "content": "Other"
                 }
             ]
         },
         {
             "index": 3,
-            "selectionType": "text",
-            "numSelections": 1,
-            "question" : "Where do you stay?",
-            "selections" : []
+            "selectionType": "check",
+            "numSelections": 3,
+            "question" : "What is your gender?",
+            "selections" : [
+                {
+                    "indexsel": 31,
+                    "content": "Male"
+                },
+                {
+                    "indexsel": 32,
+                    "content": "Female"
+                },
+                {
+                    "indexsel": 33,
+                    "content": "Other"
+                }
+            ]
         },
         {
             "index": 4,
+            "selectionType": "check",
+            "numSelections": 2,
+            "question" : "Are you a student?",
+            "selections" : [
+                {
+                    "indexsel": 41,
+                    "content": "Yes"
+                },
+                {
+                    "indexsel": 42,
+                    "content": "No"
+                }
+            ]
+        },
+        {
+            "index": 5,
+            "selectionType": "check",
+            "numSelections": 11,
+            "question" : "What field of STEM are you currently working or studying in?",
+            "selections" : [
+                {
+                    "indexsel": 51,
+                    "content": "Astronomy"
+                },
+                {
+                    "indexsel": 52,
+                    "content": "Biology"
+                },
+                {
+                    "indexsel": 53,
+                    "content": "Chemistry"
+                },
+                {
+                    "indexsel": 54,
+                    "content": "Physics"
+                },
+                {
+                    "indexsel": 55,
+                    "content": "Computer Science"
+                },
+                {
+                    "indexsel": 56,
+                    "content": "Computer Engineering"
+                },
+                {
+                    "indexsel": 57,
+                    "content": "Mathematics / Statistician"
+                },
+                {
+                    "indexsel": 58,
+                    "content": "Civil Engineering"
+                },
+                {
+                    "indexsel": 59,
+                    "content": "Electrical Engineering"
+                },
+                {
+                    "indexsel": 510,
+                    "content": "Industrial Engineering"
+                },
+                {
+                    "indexsel": 511,
+                    "content": "Other"
+                }
+            ]
+        },
+        {
+            "index": 6,
+            "selectionType": "check",
+            "numSelections": 8,
+            "question" : "What is the highest degree you hold or are currently working towards?",
+            "selections" : [
+                {
+                    "indexsel": 61,
+                    "content": "Working towards Bachelor's"
+                },
+                {
+                    "indexsel": 62,
+                    "content": "Bachelors"
+                },
+                {
+                    "indexsel": 63,
+                    "content": "Working towards Masters"
+                },
+                {
+                    "indexsel": 64,
+                    "content": "Masters"
+                },
+                {
+                    "indexsel": 65,
+                    "content": "Working towards Doctorate"
+                },
+                {
+                    "indexsel": 66,
+                    "content": "Doctoral"
+                },
+                {
+                    "indexsel": 67,
+                    "content": "No Degree"
+                },
+                {
+                    "indexsel": 68,
+                    "content": "Other"
+                }
+            ]
+        },
+        
+        {
+            "index": 7,
+            "selectionType": "text",
+            "numSelections": 1,
+            "question" : "How many years have you worked in your STEM field?",
+            "selections" : []
+        },
+        {
+            "index": 8,
+            "selectionType": "check",
+            "numSelections": 4,
+            "question" : "When would you say you decided you wanted to pursue a STEM career?",
+            "selections" : [
+                {
+                    "indexsel": 81,
+                    "content": "Elementary school"
+                },
+                {
+                    "indexsel": 82,
+                    "content": "Middle school"
+                },
+                {
+                    "indexsel": 83,
+                    "content": "High school"
+                },
+                {
+                    "indexsel": 84,
+                    "content": "Other"
+                }
+            ]
+        },
+        {
+            "index": 9,
             "selectionType": "slider",
             "numSelections": 1,
-            "question" : "Where do you stay?",
+            "question" : "I feel I am not treated equally or fairly in your field based on gender?",
             "selections" : []
         }
 ]

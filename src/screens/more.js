@@ -36,27 +36,6 @@ const More = () => {
             </View>
         </Pressable>
         
-
-
-        <Pressable 
-          onPress={myProfileRouter}
-          style={({ pressed }) => [
-              styles.shareButton,
-              {
-                //Style change here
-                backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.white,
-              }
-              
-              ]}>
-          
-            <View style={styles.row}>
-              <FontAwesome5 style={styles.icon} name='user'/> 
-              <Text style={styles.text}> My Profile</Text>
-              </View>
-          </Pressable>
-        
-
-
         <Pressable 
             onPress={TermsAndConditionsRouter}
             style={({ pressed }) => [
@@ -70,23 +49,6 @@ const More = () => {
           <View style={styles.row}>
             <FontAwesome5 style={styles.icon} name = 'list-alt' /> 
             <Text style={styles.text}>Terms and Conditions</Text>
-          </View>
-        </Pressable>
-        
-  
- 
-        <Pressable style={({ pressed }) => [
-            styles.shareButton,
-            {
-              //Style change here
-              backgroundColor: pressed ? 'lightgrey' :AppStyles.colour.white,
-            }
-            
-            ]}>
-
-          <View style={styles.row}>
-            <FontAwesome5 style={styles.icon} name = 'window-close' /> 
-            <Text style={styles.text}> Log Out</Text>
           </View>
         </Pressable>
         

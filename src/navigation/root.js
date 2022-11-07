@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Help from '../screens/help';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
@@ -10,6 +10,7 @@ import InviteStack from './inviteStack';
 const Tab = createBottomTabNavigator();
 
 export const Root = () => {
+    const [reward, setReward] = useState(0);
   return (
     <Tab.Navigator
     initialRouteName="Surveys"

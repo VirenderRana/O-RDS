@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "app_client",
-    "slug": "app_client",
+    "name": "O-RDS",
+    "slug": "ORDS",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -17,9 +17,21 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "SKAdNetworkItems": [
+          {
+            "SKAdNetworkIdentifier": "v9wttpbfk9.skadnetwork"
+          },
+          {
+            "SKAdNetworkIdentifier": "n38lu8286q.skadnetwork"
+          }
+        ]
+      }
     },
     "android": {
+      "package": "com.android.ords",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
@@ -28,7 +40,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-   
     "plugins": [
       [
         "expo-facebook",
@@ -36,8 +47,11 @@
           "userTrackingPermission": false
         }
       ]
-    ]
-    
-    
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "62bc2c97-a176-462f-b66b-7c9b2fd162ec"
+      }
+    }
   }
 }

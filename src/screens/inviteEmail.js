@@ -30,7 +30,7 @@ const SendEmail = () => {
     MailComposer.composeAsync({
         recipients: [], // array of email addresses
         subject: "RDS survey invite",
-        body: "This is a test Message"
+        body: "Please use WSTM for the survey code."
     })
 }
 
